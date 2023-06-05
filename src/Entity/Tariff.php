@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="tariff")
+ * @ORM\HasLifecycleCallbacks
  */
 class Tariff {
 
@@ -35,15 +35,13 @@ class Tariff {
 
     /**
     * @var \DateTime
-    * @Gedmo\Mapping\Annotation\Timestampable(on="create")
     * @Doctrine\ORM\Mapping\Column(type="datetime")
     */
     protected $createdAt;
 
     /**
     * @var \DateTime
-    * @Gedmo\Mapping\Annotation\Timestampable(on="update")
-    * @Doctrine\ORM\Mapping\Column(type="datetime")
+     * @Doctrine\ORM\Mapping\Column(type="datetime")
     */
     protected $updatedAt;
 
@@ -52,7 +50,7 @@ class Tariff {
         return $this->user;
     }
 
-    public function setUser(User $user)
+    public function setUser(?User $user):self
     {
         $this->user = $user;
 
@@ -73,5 +71,54 @@ class Tariff {
 
     public function setTariff($tariff){
         $this->tariff = $tariff;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function updatedTimestamps(): void
+    {
+        $dateTimeNow = new \DateTime('now');
+
+        $this->setUpdatedAt($dateTimeNow);
+
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt($dateTimeNow);
+        }
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->type. ' '.$this->tariff;
+    }
+
+    public function getId(){
+        return $this->id;
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c019d64f4ad6056ab3d9431e026c553",
+    "content-hash": "4e949237498d230abaf1dca356273e35",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3105,6 +3105,138 @@
                 }
             ],
             "time": "2023-06-04T07:48:30+00:00"
+        },
+        {
+            "name": "sonata-project/doctrine-orm-admin-bundle",
+            "version": "4.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
+                "reference": "8c47894be4bb2ce622a0be2c0e9f60ca1ee54356"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/8c47894be4bb2ce622a0be2c0e9f60ca1ee54356",
+                "reference": "8c47894be4bb2ce622a0be2c0e9f60ca1ee54356",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.4",
+                "doctrine/doctrine-bundle": "^2.7",
+                "doctrine/orm": "^2.14",
+                "doctrine/persistence": "^3.0.2",
+                "php": "^8.0",
+                "sonata-project/admin-bundle": "^4.18",
+                "sonata-project/exporter": "^2.0 || ^3.0",
+                "sonata-project/form-extensions": "^1.4",
+                "symfony/config": "^4.4 || ^5.4 || ^6.2",
+                "symfony/console": "^4.4 || ^5.4 || ^6.2",
+                "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.2",
+                "symfony/doctrine-bridge": "^4.4 || ^5.4 || ^6.2",
+                "symfony/form": "^4.4 || ^5.4 || ^6.2",
+                "symfony/framework-bundle": "^4.4 || ^5.4 || ^6.2",
+                "symfony/http-foundation": "^4.4 || ^5.4 || ^6.2",
+                "symfony/http-kernel": "^4.4 || ^5.4 || ^6.2",
+                "symfony/options-resolver": "^4.4 || ^5.4 || ^6.2",
+                "symfony/property-access": "^4.4 || ^5.4 || ^6.2",
+                "symfony/security-acl": "^3.0",
+                "twig/twig": "^2.10 || ^3.0"
+            },
+            "conflict": {
+                "sonata-project/block-bundle": "<4.2",
+                "sonata-project/entity-audit-bundle": ">=2.0"
+            },
+            "provide": {
+                "sonata-project/admin-bundle-persistency-layer": "1.0.0"
+            },
+            "require-dev": {
+                "dama/doctrine-test-bundle": "^7.0",
+                "doctrine/doctrine-fixtures-bundle": "^3.4",
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.2",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
+                "phpstan/phpstan-symfony": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "psalm/plugin-phpunit": "^0.18",
+                "psalm/plugin-symfony": "^4.0 || ^5.0",
+                "rector/rector": "^0.15",
+                "sonata-project/block-bundle": "^4.2",
+                "sonata-project/entity-audit-bundle": "^1.1",
+                "symfony/browser-kit": "^4.4 || ^5.4 || ^6.2",
+                "symfony/css-selector": "^4.4 || ^5.4 || ^6.2",
+                "symfony/panther": "^1.0 || ^2.0",
+                "symfony/phpunit-bridge": "^6.2",
+                "symfony/templating": "^4.4 || ^5.4 || ^6.2",
+                "symfony/yaml": "^4.4 || ^5.4 || ^6.2",
+                "vimeo/psalm": "^4.1.1 || ^5.7",
+                "weirdan/doctrine-psalm-plugin": "^2.0"
+            },
+            "suggest": {
+                "sonata-project/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\DoctrineORMAdminBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "https://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/contributors"
+                }
+            ],
+            "description": "Integrate Doctrine ORM into the SonataAdminBundle",
+            "homepage": "https://docs.sonata-project.org/projects/SonataDoctrineORMAdminBundle",
+            "keywords": [
+                "admin",
+                "admin-generator",
+                "bundle",
+                "doctrine",
+                "orm",
+                "sonata",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/issues",
+                "source": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle/tree/4.11.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/OskarStark",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/VincentLanglet",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/greg0ire",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jordisala1991",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-04-09T16:32:39+00:00"
         },
         {
             "name": "sonata-project/exporter",

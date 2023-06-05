@@ -13,6 +13,17 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
+
+    admin.user:
+        class: App\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\User, manager_type: orm, label: User }
+
+    admin.tariff:
+        class: App\Admin\TariffAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Tariff, manager_type: orm, label: Tariff }
+
     App\:
         resource: '../src/'
         exclude:
