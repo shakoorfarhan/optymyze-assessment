@@ -15,12 +15,18 @@ final class UserAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $form): void
     {
-        $form->add('name', TextType::class);
-        $form->add('tariffs',EntityType::class, [
+        $form->add('name', TextType::class)
+            ->add('tariffs',EntityType::class, [
             'class' => Tariff::class,
             'choice_label' => 'type',
             'multiple' => true
-        ]);
+            ])
+            ->add('phoneNo', TextType::class, array(
+                'label' => 'phone no'
+            ))
+            ->add('address', TextType::class, array(
+                'label' => 'address'
+            ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagrid): void
@@ -30,13 +36,17 @@ final class UserAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list->addIdentifier('name');
-        $list->add('tariffs');
+        $list->add('name')
+            ->add('tariffs')
+            ->add('phoneNo')
+            ->add('address');
     }
 
     protected function configureShowFields(ShowMapper $show): void
     {
-        $show->add('name');
-        $show->add('tariffs');
+        $show->add('name')
+            ->add('tariffs')
+            ->add('phoneNo')
+            ->add('address');
     }
 }

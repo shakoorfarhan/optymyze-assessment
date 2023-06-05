@@ -29,6 +29,48 @@ class User
     private $name;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $address;
+
+    /**
+     * @return mixed
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address): void
+    {
+        $this->address = $address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNo()
+    {
+        return $this->phoneNo;
+    }
+
+    /**
+     * @param mixed $phoneNo
+     */
+    public function setPhoneNo($phoneNo): void
+    {
+        $this->phoneNo = $phoneNo;
+    }
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $phoneNo;
+
+    /**
     * @var \DateTime
     * @Doctrine\ORM\Mapping\Column(type="datetime")
     */
@@ -131,7 +173,6 @@ class User
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         return $this->name;
     }
 }

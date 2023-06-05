@@ -40,6 +40,50 @@ class Tariff {
     protected $createdAt;
 
     /**
+     * @var \DateTime
+     * @Doctrine\ORM\Mapping\Column(type="datetime")
+     */
+    protected $startDate;
+
+    /**
+     * @var \DateTime
+     * @Doctrine\ORM\Mapping\Column(type="datetime")
+     */
+    protected $endDate;
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @param \DateTime $startDate
+     */
+    public function setStartDate(\DateTime $startDate): void
+    {
+        $this->startDate = $startDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     */
+    public function setEndDate(\DateTime $endDate): void
+    {
+        $this->endDate = $endDate;
+    }
+
+    /**
     * @var \DateTime
      * @Doctrine\ORM\Mapping\Column(type="datetime")
     */
@@ -114,7 +158,6 @@ class Tariff {
 
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         return $this->type. ' '.$this->tariff;
     }
 
