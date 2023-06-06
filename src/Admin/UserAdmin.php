@@ -16,10 +16,10 @@ final class UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $form): void
     {
         $form->add('name', TextType::class)
-            ->add('tariffs',EntityType::class, [
-            'class' => Tariff::class,
-            'choice_label' => 'type',
-            'multiple' => true
+            ->add('tariffs', EntityType::class, [
+                'class' => Tariff::class,
+                'choice_label' => 'type',
+                'multiple' => true
             ])
             ->add('phoneNo', TextType::class, array(
                 'label' => 'phone no'

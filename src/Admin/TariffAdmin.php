@@ -19,17 +19,17 @@ final class TariffAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $form): void
     {
         $form->add('type', TextType::class)
-            ->add('user', EntityType::class,[
-            'class' => User::class,
-            'choice_label' => 'name'
+            ->add('user', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'name'
             ])
             ->add('tariff', IntegerType::class, array(
-                'label'=> 'tariff ($)'
+                'label' => 'tariff ($)'
             ))
-            ->add('startDate' , DatePickerType::class, array(
+            ->add('startDate', DatePickerType::class, array(
                 'label' => 'start date'
             ))
-            ->add('endDate' , DatePickerType::class, array(
+            ->add('endDate', DatePickerType::class, array(
                 'label' => 'end date'
             ));
     }
@@ -43,7 +43,7 @@ final class TariffAdmin extends AbstractAdmin
     {
         $list->add('type')
             ->add('tariff', IntegerType::class, array(
-            'label' => 'tariff ($)'
+                'label' => 'tariff ($)'
             ))
             ->add('user')
             ->add('startDate', null, array(
