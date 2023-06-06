@@ -1,14 +1,38 @@
-version: '3'
+version: '3.7'
 
 services:
-###> symfony/mailer ###
-  mailer:
-    image: schickling/mailcatcher
-    ports: ["1025", "1080"]
-###< symfony/mailer ###
-
-###> doctrine/doctrine-bundle ###
-  database:
+  nginx:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-nginx
+    volumes:
+      - ./:/var/www/optymyze_assessment:cached
     ports:
-      - "5432"
-###< doctrine/doctrine-bundle ###
+      - 10302:80
+    networks:
+      - optymyze
+  fpm:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-php
+    volumes:
+      - ./:/var/www/optymyze_assessment/:cached
+    networks:
+      - optymyze
+  db:
+    container_name: "database"
+    image: mariadb:10.2.29
+    ports:
+      - "3317:3306"
+    environment:
+      - MYSQL_DATABASE=optymyze-assessment
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - persistent:/var/lib/mysql
+      - ./docker/build/db:/docker-entrypoint-initdb.d/
+    networks:
+      - optymyze
+volumes:
+  persistent:
+networks:
+  optymyze:
